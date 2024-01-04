@@ -7,7 +7,8 @@ test('has title', async ({ page }) => {
 
 test ('check github link',async ({ page }) => {
     await page.goto('https://hokkung.netlify.app/');
-    await page.getByRole('link', { name: 'GitHub' }).click();
+    //await page.getByRole('link', { name: 'GitHub' }).click();
+    await page.getByTitle('Blogster on GitHub').click();
     // Wait for popup window
     const newTabPromise = page.waitForEvent('popup');
     const newTab = await newTabPromise;
@@ -17,7 +18,8 @@ test ('check github link',async ({ page }) => {
 
 test ('check medium link',async ({ page }) => {
     await page.goto('https://hokkung.netlify.app/');
-    await page.getByRole('link', { name: 'Medium' }).click();
+    //await page.getByRole('link', { name: 'Medium' }).click();
+    await page.getByTitle('Medium Link').first().click();
     const pagePromise = page.waitForEvent('popup');
     const newTab = await pagePromise;
     await newTab.waitForLoadState();
